@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		51B4DCA5200092C3005A0BE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCA4200092C3005A0BE5 /* AppDelegate.swift */; };
-		51B4DCA7200092C3005A0BE5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCA6200092C3005A0BE5 /* FirstViewController.swift */; };
-		51B4DCA9200092C3005A0BE5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCA8200092C3005A0BE5 /* SecondViewController.swift */; };
+		51B4DCA7200092C3005A0BE5 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCA6200092C3005A0BE5 /* IndexViewController.swift */; };
+		51B4DCA9200092C3005A0BE5 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCA8200092C3005A0BE5 /* DiscoverViewController.swift */; };
 		51B4DCAC200092C3005A0BE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51B4DCAA200092C3005A0BE5 /* Main.storyboard */; };
 		51B4DCAE200092C4005A0BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51B4DCAD200092C4005A0BE5 /* Assets.xcassets */; };
 		51B4DCB1200092C4005A0BE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51B4DCAF200092C4005A0BE5 /* LaunchScreen.storyboard */; };
 		51B4DCBC200092C4005A0BE5 /* iWaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCBB200092C4005A0BE5 /* iWaterTests.swift */; };
 		51B4DCC7200092C4005A0BE5 /* iWaterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCC6200092C4005A0BE5 /* iWaterUITests.swift */; };
+		51B4DCD62000A18B005A0BE5 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCD52000A18B005A0BE5 /* user.swift */; };
+		51B4DCE42000E1D9005A0BE5 /* DrinkCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCE32000E1D9005A0BE5 /* DrinkCustomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +39,8 @@
 /* Begin PBXFileReference section */
 		51B4DCA1200092C3005A0BE5 /* iWater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B4DCA4200092C3005A0BE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		51B4DCA6200092C3005A0BE5 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		51B4DCA8200092C3005A0BE5 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		51B4DCA6200092C3005A0BE5 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
+		51B4DCA8200092C3005A0BE5 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		51B4DCAB200092C3005A0BE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51B4DCAD200092C4005A0BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51B4DCB0200092C4005A0BE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		51B4DCC2200092C4005A0BE5 /* iWaterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iWaterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B4DCC6200092C4005A0BE5 /* iWaterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iWaterUITests.swift; sourceTree = "<group>"; };
 		51B4DCC8200092C4005A0BE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51B4DCD52000A18B005A0BE5 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		51B4DCE32000E1D9005A0BE5 /* DrinkCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCustomViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +103,12 @@
 		51B4DCA3200092C3005A0BE5 /* iWater */ = {
 			isa = PBXGroup;
 			children = (
+				51B4DCD42000A177005A0BE5 /* models */,
 				51B4DCA4200092C3005A0BE5 /* AppDelegate.swift */,
-				51B4DCA6200092C3005A0BE5 /* FirstViewController.swift */,
-				51B4DCA8200092C3005A0BE5 /* SecondViewController.swift */,
+				51B4DCA6200092C3005A0BE5 /* IndexViewController.swift */,
+				51B4DCA8200092C3005A0BE5 /* DiscoverViewController.swift */,
 				51B4DCAA200092C3005A0BE5 /* Main.storyboard */,
+				51B4DCE32000E1D9005A0BE5 /* DrinkCustomViewController.swift */,
 				51B4DCAD200092C4005A0BE5 /* Assets.xcassets */,
 				51B4DCAF200092C4005A0BE5 /* LaunchScreen.storyboard */,
 				51B4DCB2200092C4005A0BE5 /* Info.plist */,
@@ -126,6 +132,14 @@
 				51B4DCC8200092C4005A0BE5 /* Info.plist */,
 			);
 			path = iWaterUITests;
+			sourceTree = "<group>";
+		};
+		51B4DCD42000A177005A0BE5 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				51B4DCD52000A18B005A0BE5 /* user.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +276,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51B4DCA9200092C3005A0BE5 /* SecondViewController.swift in Sources */,
+				51B4DCD62000A18B005A0BE5 /* user.swift in Sources */,
+				51B4DCE42000E1D9005A0BE5 /* DrinkCustomViewController.swift in Sources */,
+				51B4DCA9200092C3005A0BE5 /* DiscoverViewController.swift in Sources */,
 				51B4DCA5200092C3005A0BE5 /* AppDelegate.swift in Sources */,
-				51B4DCA7200092C3005A0BE5 /* FirstViewController.swift in Sources */,
+				51B4DCA7200092C3005A0BE5 /* IndexViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  DiscoverViewController.swift
 //  iWater
 //
 //  Created by cloudy on 2018/1/6.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class DiscoverViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
