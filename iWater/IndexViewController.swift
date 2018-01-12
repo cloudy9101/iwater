@@ -25,16 +25,30 @@ class IndexViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        // let delegate = UIApplication.shared.delegate as? AppDelegate
+        // delegate?.scheduleNotification(date: Date(timeIntervalSinceNow: 20))
         pointSize = zeroVolume.frame.origin.y - targetVolume.frame.origin.y
         
-        setUser()
-        setUserInfo()
-        setTargetVolume()
-        setCurrentVolume()
+        initUser()
         
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(IndexViewController.hiddenDrinkView(gestureRecognize:)))
         tapGesture.delegate = self
         drinkView.addGestureRecognizer(tapGesture)
+    }
+    
+    func initUser() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.user = appDelegate.user
+        if user == nil {
+            setDefaultUser()
+        }
+        setUserInfo()
+        setTargetVolume()
+        setCurrentVolume()
+    }
+    
+    func setDefaultUser() {
+        self.user = User()
     }
     
     @objc func hiddenDrinkView(gestureRecognize: UIGestureRecognizer) {
@@ -66,38 +80,39 @@ class IndexViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func setCurrentVolume() {
         currentVolume.frame.origin.x = targetVolume.frame.origin.x
-        currentVolume.frame.origin.y = targetVolume.frame.origin.y + CGFloat(CGFloat(user!.targetVolumeNumber - user!.currentVolumeNumber) * pointSize! / CGFloat(user!.targetVolumeNumber))
+        currentVolume.frame.origin.y = targetVolume.frame.origin.y + CGFloat(CGFloat(user!.userMode!.targetVolumeNumber! - user!.currentVolumeNumber) * pointSize! / CGFloat(user!.userMode!.targetVolumeNumber!))
         currentVolume.text = String(user!.currentVolumeNumber) + " ML"
     }
     
     func riseCurrentVolume(_ gap: Int) {
-        if user!.currentVolumeNumber >= user!.targetVolumeNumber {
+        if user!.currentVolumeNumber >= user!.userMode!.targetVolumeNumber! {
             return
         }
-        currentVolume.frame = CGRect(x: currentVolume.frame.origin.x, y: currentVolume.frame.origin.y - CGFloat(CGFloat(gap) * pointSize! / CGFloat(user!.targetVolumeNumber)), width: currentVolume.frame.width, height: currentVolume.frame.height)
-    }
-    
-    func setUser() {
-        user = User(id: 1, date: Date())
+        currentVolume.frame = CGRect(x: currentVolume.frame.origin.x, y: currentVolume.frame.origin.y - CGFloat(CGFloat(gap) * pointSize! / CGFloat(user!.userMode!.targetVolumeNumber!)), width: currentVolume.frame.width, height: currentVolume.frame.height)
     }
     
     func setUserInfo() {
-        name.text = user!.name
-        age.text = String(user!.age)
+        name.text = user!.userMode!.name
+        age.text = String(user!.userMode!.age)
         setAvatar()
     }
     
     func setAvatar() {
-        getDataFromUrl(url: URL(string: user!.avatar)!) { data, response, error in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async() {
-                self.avatar.image = UIImage(data: data)
+        let avatar = user?.userMode?.avatar
+        if avatar == nil {
+            self.avatar.image = UIImage(contentsOfFile: "default_avatar")
+        } else {
+            getDataFromUrl(url: URL(string: user!.userMode!.avatar!)!) { data, response, error in
+                guard let data = data, error == nil else { return }
+                DispatchQueue.main.async() {
+                    self.avatar.image = UIImage(data: data)
+                }
             }
         }
     }
     
     func setTargetVolume() {
-        targetVolume.text = String(user!.targetVolumeNumber) + " ML"
+        targetVolume.text = String(describing: user!.userMode!.targetVolumeNumber!) + " ML"
     }
     
     func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
@@ -107,7 +122,7 @@ class IndexViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "drinkCustomSugue" {
+        if segue.identifier == "drinkCustomSegue" {
             let controller = segue.destination as? DrinkCustomViewController
             controller!.indexViewController = self
         }

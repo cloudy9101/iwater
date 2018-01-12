@@ -9,26 +9,47 @@
 import Foundation
 
 class User {
-    var id: Int
-    var date: Date
-    var currentVolumeNumber: Int
-    var targetVolumeNumber: Int
+    var userMode: UserMode?
+    var currentVolumeNumber: Int!
     
-    var name: String
-    var gender: String
-    var age: Int
-    var avatar: String
-    
-    init(id: Int, date: Date) {
-        self.id = id
-        self.date = date
-        self.currentVolumeNumber = 1000
-        self.targetVolumeNumber = 4000
+    init(_ token: String, completion: @escaping (_ user: User) -> ()) {
+        let urlString = "http://localhost:4000/user.json"
+        guard let url = URL(string: urlString) else { return }
         
-        self.name = "查派"
-        self.gender = "male"
-        self.age = 25
-        self.avatar = "https://l.ruby-china.org/user/avatar/10344.jpg"
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+            
+            guard let data = data else { return }
+            
+            do {
+                let userData = try JSONDecoder().decode(UserMode.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.userMode = userData
+                    self.currentVolumeNumber = userData.currentVolumeNumber
+                    completion(self)
+                }
+                
+            } catch let jsonError {
+                print(jsonError)
+            }
+            
+        }.resume()
+    }
+    
+    init() {
+        self.userMode = UserMode(email: "iwater@iwater.com",
+                                 mobile: nil,
+                                 name: "iWater",
+                                 bio: nil,
+                                 gender: 0,
+                                 age: 0,
+                                 currentVolumeNumber: 0,
+                                 avatar: nil,
+                                 targetVolumeNumber: 3000)
+        self.currentVolumeNumber = userMode?.currentVolumeNumber!
     }
     
     func incrCurrentVolumeNumber(volume: Int) {

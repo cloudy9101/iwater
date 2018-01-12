@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let notificationCenter = UNUserNotificationCenter.current()
+    var user: User?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        requestAuthorizations()
+        scheduleNotifications()
+        
         return true
     }
 
@@ -42,5 +47,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    // Additional
+    func requestAuthorizations() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            // Enable or disable features based on authorization.
+            if granted {
+                center.delegate = self
+            }
+        }
+    }
+    
+    func scheduleNotification(hour: Int) {
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey: "Drink Time", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: "It's time to drink a bit!",
+                                                                arguments: nil)
+
+        let components = DateComponents(timeZone: TimeZone.current, hour: hour, minute: 0)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+        
+        // Create the request object.
+        let request = UNNotificationRequest(identifier: "DrinkTimeAlert_" + String(hour), content: content, trigger: trigger)
+        
+        notificationCenter.add(request) { (error : Error?) in
+            if let theError = error {
+                print(theError.localizedDescription)
+            }
+        }
+    }
+   
+    func scheduleNotifications() {
+        let hours: CountableClosedRange = 9...20
+        for i in hours {
+            scheduleNotification(hour: i)
+        }
+    }
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+}
