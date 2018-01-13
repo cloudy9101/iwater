@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5181EBAD2008F8D80003118A /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5181EBAC2008F8D80003118A /* LandingViewController.swift */; };
 		5181EBAF200916150003118A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5181EBAE200916150003118A /* TabBarViewController.swift */; };
+		5181EBB42009EAF60003118A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5181EBB32009EAF60003118A /* Utils.swift */; };
+		5181EBB62009EF7E0003118A /* UserAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5181EBB52009EF7E0003118A /* UserAccessToken.swift */; };
+		5181EBBB200A08CB0003118A /* UserToken.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5181EBB9200A08CB0003118A /* UserToken.xcdatamodeld */; };
 		51B4DCA5200092C3005A0BE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCA4200092C3005A0BE5 /* AppDelegate.swift */; };
 		51B4DCA7200092C3005A0BE5 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCA6200092C3005A0BE5 /* IndexViewController.swift */; };
 		51B4DCA9200092C3005A0BE5 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCA8200092C3005A0BE5 /* DiscoverViewController.swift */; };
@@ -42,6 +45,9 @@
 /* Begin PBXFileReference section */
 		5181EBAC2008F8D80003118A /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		5181EBAE200916150003118A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		5181EBB32009EAF60003118A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		5181EBB52009EF7E0003118A /* UserAccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccessToken.swift; sourceTree = "<group>"; };
+		5181EBBA200A08CB0003118A /* UserToken.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserToken.xcdatamodel; sourceTree = "<group>"; };
 		51B4DCA1200092C3005A0BE5 /* iWater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B4DCA4200092C3005A0BE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51B4DCA6200092C3005A0BE5 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +126,8 @@
 				51B4DCB2200092C4005A0BE5 /* Info.plist */,
 				5181EBAC2008F8D80003118A /* LandingViewController.swift */,
 				5181EBAE200916150003118A /* TabBarViewController.swift */,
+				5181EBB32009EAF60003118A /* Utils.swift */,
+				5181EBB9200A08CB0003118A /* UserToken.xcdatamodeld */,
 			);
 			path = iWater;
 			sourceTree = "<group>";
@@ -147,6 +155,7 @@
 			children = (
 				51B4DCD52000A18B005A0BE5 /* user.swift */,
 				51BE539D2006651600E8A24A /* UserMode.swift */,
+				5181EBB52009EF7E0003118A /* UserAccessToken.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -289,9 +298,12 @@
 				51B4DCD62000A18B005A0BE5 /* user.swift in Sources */,
 				5181EBAD2008F8D80003118A /* LandingViewController.swift in Sources */,
 				51B4DCE42000E1D9005A0BE5 /* DrinkCustomViewController.swift in Sources */,
+				5181EBB42009EAF60003118A /* Utils.swift in Sources */,
+				5181EBBB200A08CB0003118A /* UserToken.xcdatamodeld in Sources */,
 				51B4DCA9200092C3005A0BE5 /* DiscoverViewController.swift in Sources */,
 				51B4DCA5200092C3005A0BE5 /* AppDelegate.swift in Sources */,
 				51B4DCA7200092C3005A0BE5 /* IndexViewController.swift in Sources */,
+				5181EBB62009EF7E0003118A /* UserAccessToken.swift in Sources */,
 				51BE539E2006651600E8A24A /* UserMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -590,6 +602,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5181EBB9200A08CB0003118A /* UserToken.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5181EBBA200A08CB0003118A /* UserToken.xcdatamodel */,
+			);
+			currentVersion = 5181EBBA200A08CB0003118A /* UserToken.xcdatamodel */;
+			path = UserToken.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 51B4DC99200092C3005A0BE5 /* Project object */;
 }

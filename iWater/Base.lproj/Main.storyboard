@@ -301,6 +301,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="nhS-CO-tjY"/>
                     </view>
+                    <connections>
+                        <outlet property="passwordInput" destination="jn5-kw-Itt" id="9vE-2a-G0k"/>
+                        <outlet property="usernameInput" destination="t0G-hu-c1N" id="hbc-Hn-Rcu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oge-F5-MCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

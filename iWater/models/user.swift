@@ -14,15 +14,7 @@ class User {
     
     init(_ token: String, completion: @escaping (_ user: User) -> ()) {
         let urlString = "http://localhost:4000/user.json"
-        guard let url = URL(string: urlString) else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if error != nil {
-                print(error!.localizedDescription)
-            }
-            
-            guard let data = data else { return }
-            
+        Utils.shared.getData(url: urlString, params: ["access_token": token], success: {(data) in
             do {
                 let userData = try JSONDecoder().decode(UserMode.self, from: data)
                 
@@ -35,8 +27,9 @@ class User {
             } catch let jsonError {
                 print(jsonError)
             }
-            
-        }.resume()
+        }, failure: {(error) in
+            print(error)
+        })
     }
     
     init() {

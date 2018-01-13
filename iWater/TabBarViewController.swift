@@ -15,6 +15,7 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setUser()
         if appDelegate.user == nil {
             self.popLandingView()
         }
@@ -32,8 +33,11 @@ class TabBarViewController: UITabBarController {
         present(landingViewController, animated: true)
     }
     
+    func setUser() {
+        
+    }
+    
     func initUser() {
-        print(childViewControllers.count)
         var indexViewController: IndexViewController?
         for i in self.childViewControllers {
             if i is IndexViewController {

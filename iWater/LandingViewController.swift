@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class LandingViewController: UIViewController {
     var indexViewController: IndexViewController!
     var tabBarViewController: TabBarViewController!
     var user: User?
     let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    @IBOutlet weak var usernameInput: UITextField!
+    @IBOutlet weak var passwordInput: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,15 +29,47 @@ class LandingViewController: UIViewController {
     }
 
     @IBAction func signin(_ sender: Any) {
-        self.user = User("TOKEN") { user in
-            self.appDelegate.user = user
-            self.returnToTabBarView()
-            self.tabBarViewController.initUser()
-        }
+        get_access_token({(token) in
+            self.user = User(token) { user in
+                self.appDelegate.user = user
+                self.view.removeFromSuperview()
+                self.tabBarViewController.initUser()
+            }
+        })
     }
-    
-    func returnToTabBarView() {
-        self.view.removeFromSuperview()
+
+    func get_access_token(_ completion: @escaping (_ token: String) -> ()) {
+        let url = "http://localhost:4000/oauth/token"
+        let username = usernameInput.text
+        let password = passwordInput.text
+        let grantType = "password"
+        Utils.shared.postData(url: url,
+                              params: ["username": username ?? "", "password": password ?? "", "grant_type": grantType],
+                              success: {(result) in
+                                do {
+                                    let authData = try JSONDecoder().decode(UserAccessToken.self, from: result)
+                                    completion(authData.access_token)
+
+                                    let persistentController = NSPersistentContainer(name: "UserToken")
+                                    persistentController.loadPersistentStores(completionHandler: {(description, error) in
+                                        let context = persistentController.viewContext
+                                        let entity = NSEntityDescription.entity(forEntityName: "UserTokens", in: context)
+                                        let newAuth = NSManagedObject(entity: entity!, insertInto: context)
+                                        newAuth.setValuesForKeys(authData.dictionary)
+                                        
+                                        do {
+                                            try context.save()
+                                        } catch {
+                                            print("Failed saving")
+                                        }
+                                    })
+                                    
+                                } catch let jsonError {
+                                    print(jsonError)
+                                }
+        }, failure: {(error) in
+            print(error)
+        })
     }
     
     /*
