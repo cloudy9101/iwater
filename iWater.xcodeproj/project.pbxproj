@@ -20,7 +20,7 @@
 		51B4DCB1200092C4005A0BE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51B4DCAF200092C4005A0BE5 /* LaunchScreen.storyboard */; };
 		51B4DCBC200092C4005A0BE5 /* iWaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCBB200092C4005A0BE5 /* iWaterTests.swift */; };
 		51B4DCC7200092C4005A0BE5 /* iWaterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCC6200092C4005A0BE5 /* iWaterUITests.swift */; };
-		51B4DCD62000A18B005A0BE5 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCD52000A18B005A0BE5 /* user.swift */; };
+		51B4DCD62000A18B005A0BE5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCD52000A18B005A0BE5 /* User.swift */; };
 		51B4DCE42000E1D9005A0BE5 /* DrinkCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4DCE32000E1D9005A0BE5 /* DrinkCustomViewController.swift */; };
 		51BE539E2006651600E8A24A /* UserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE539D2006651600E8A24A /* UserMode.swift */; };
 /* End PBXBuildFile section */
@@ -62,7 +62,7 @@
 		51B4DCC2200092C4005A0BE5 /* iWaterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iWaterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B4DCC6200092C4005A0BE5 /* iWaterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iWaterUITests.swift; sourceTree = "<group>"; };
 		51B4DCC8200092C4005A0BE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		51B4DCD52000A18B005A0BE5 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		51B4DCD52000A18B005A0BE5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		51B4DCE32000E1D9005A0BE5 /* DrinkCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCustomViewController.swift; sourceTree = "<group>"; };
 		51BE539D2006651600E8A24A /* UserMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,7 +153,7 @@
 		51B4DCD42000A177005A0BE5 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				51B4DCD52000A18B005A0BE5 /* user.swift */,
+				51B4DCD52000A18B005A0BE5 /* User.swift */,
 				51BE539D2006651600E8A24A /* UserMode.swift */,
 				5181EBB52009EF7E0003118A /* UserAccessToken.swift */,
 			);
@@ -295,7 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5181EBAF200916150003118A /* TabBarViewController.swift in Sources */,
-				51B4DCD62000A18B005A0BE5 /* user.swift in Sources */,
+				51B4DCD62000A18B005A0BE5 /* User.swift in Sources */,
 				5181EBAD2008F8D80003118A /* LandingViewController.swift in Sources */,
 				51B4DCE42000E1D9005A0BE5 /* DrinkCustomViewController.swift in Sources */,
 				5181EBB42009EAF60003118A /* Utils.swift in Sources */,

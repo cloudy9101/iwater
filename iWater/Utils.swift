@@ -9,6 +9,7 @@
 import Foundation
 
 class Utils {
+    static let apiHost = "http://localhost:4000"
     static let shared = Utils()
     
     func postData(url: String, params: Dictionary<String,Any>?, success: @escaping ((_ result: Data) -> ()), failure: @escaping ((_ error:Error) -> ())) {

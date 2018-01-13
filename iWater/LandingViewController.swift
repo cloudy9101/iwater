@@ -39,7 +39,7 @@ class LandingViewController: UIViewController {
     }
 
     func get_access_token(_ completion: @escaping (_ token: String) -> ()) {
-        let url = "http://localhost:4000/oauth/token"
+        let url = Utils.apiHost + "/oauth/token"
         let username = usernameInput.text
         let password = passwordInput.text
         let grantType = "password"
