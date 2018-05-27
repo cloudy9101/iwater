@@ -9,48 +9,50 @@
 import Foundation
 
 class User {
-    var userMode: UserMode?
+    public var userMode: UserMode?
     var currentVolumeNumber: Int!
+    var accessToken: String?
     
-    init(_ token: String, completion: @escaping (_ user: User) -> ()) {
-        let urlString = "http://localhost:4000/user.json"
-        Utils.shared.getData(url: urlString, params: ["access_token": token], success: {(data) in
+    
+    init(_ token: String) {
+        self.accessToken = token
+        Utils.shared.getData(url: Constants.userEndpoint, params: ["access_token": token], success: {(data) in
             do {
                 let userData = try JSONDecoder().decode(UserMode.self, from: data)
                 
                 DispatchQueue.main.async {
                     self.userMode = userData
                     self.currentVolumeNumber = userData.currentVolumeNumber
-                    completion(self)
+
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "GetUser"), object: self)
                 }
                 
             } catch let jsonError {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NoUser"), object: nil)
                 print(jsonError)
             }
         }, failure: {(error) in
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NoUser"), object: nil)
             print(error)
         })
     }
     
-    init() {
-        self.userMode = UserMode(email: "iwater@iwater.com",
-                                 mobile: nil,
-                                 name: "iWater",
-                                 bio: nil,
-                                 gender: 0,
-                                 age: 0,
-                                 currentVolumeNumber: 0,
-                                 avatar: nil,
-                                 targetVolumeNumber: 3000)
-        self.currentVolumeNumber = userMode?.currentVolumeNumber!
-    }
-    
     func incrCurrentVolumeNumber(volume: Int) {
         self.currentVolumeNumber = self.currentVolumeNumber + volume
-        syncData()
+        syncData(volume)
     }
     
-    func syncData() {
-        // TODO
+    func syncData(_ volume: Int) {
+        Utils.shared.postData(url: Constants.drinkLogEndpoint, params: ["volume": volume, "access_token": accessToken! ], success: {(data) in
+            
+        }, failure: {(error) in
+            
+        })
+    }
+    
+    
+    func drink(_ gap: Int) {
+        self.incrCurrentVolumeNumber(volume: gap)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "volumeChanged"), object: self)
     }
 }

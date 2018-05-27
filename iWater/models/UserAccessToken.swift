@@ -14,11 +14,4 @@ struct UserAccessToken: Codable {
     let expires_in: Int
     let refresh_token: String
     let created_at: Int
-    var dictionary: [String: Any] {
-        return ["access_token": access_token,
-                "token_type": token_type,
-                "expires_in": expires_in,
-                "refresh_token": refresh_token,
-                "created_at": created_at]
-    }
 }

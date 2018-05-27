@@ -36,7 +36,7 @@ class DrinkCustomViewController: UIViewController {
             gapInt = Int(gapText!)
         }
         if gapInt != nil {
-            indexViewController!.drink(gapInt!)
+            indexViewController!.user!.drink(gapInt!)
         }
         self.dismiss(animated: true, completion: {() -> Void in
             self.indexViewController!.drinkView.isHidden = true

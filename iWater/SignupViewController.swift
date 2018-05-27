@@ -1,16 +1,18 @@
 //
-//  LandingViewController.swift
+//  SignupViewController.swift
 //  iWater
 //
-//  Created by cloudy on 2018/1/12.
+//  Created by cloudy on 2018/1/14.
 //  Copyright © 2018年 cloudy9101. All rights reserved.
 //
 
 import UIKit
 
-class LandingViewController: UIViewController {
-    @IBOutlet weak var usernameInput: UITextField!
+class SignupViewController: UIViewController {
+    @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
+    @IBOutlet weak var usernameInput: UITextField!
+    @IBOutlet weak var ageInput: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +25,15 @@ class LandingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    @IBAction func signin(_ sender: Any) {
-        let username = usernameInput.text
-        let password = passwordInput.text
+    @IBAction func signup(_ sender: Any) {
+        let email = emailInput.text!
+        let password = passwordInput.text!
+        let username = usernameInput.text!
+        let age = ageInput.text!
         
-        performSegue(withIdentifier: "login", sender: nil)
-        Utils.shared.get_access_token(username: username!, password: password!)
+        self.performSegue(withIdentifier: "signupin", sender: nil)
+        Utils.shared.signup(email, password, username, age)
     }
-
     
     /*
     // MARK: - Navigation
@@ -42,5 +44,5 @@ class LandingViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
+
 }
