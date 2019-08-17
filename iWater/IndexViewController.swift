@@ -115,19 +115,13 @@ class IndexViewController: UIViewController, UIGestureRecognizerDelegate {
         if avatar == nil {
             self.avatar.image = UIImage(contentsOfFile: "default_avatar")
         } else {
-            getDataFromUrl(url: URL(string: user!.userMode!.avatar!)!) { data, response, error in
+            Utils.shared.getDataFromUrl(url: URL(string: user!.userMode!.avatar!)!) { data, response, error in
                 guard let data = data, error == nil else { return }
                 DispatchQueue.main.async() {
                     self.avatar.image = UIImage(data: data)
                 }
             }
         }
-    }
-    
-    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            completion(data, response, error)
-            }.resume()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

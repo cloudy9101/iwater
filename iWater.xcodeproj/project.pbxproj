@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5105D7BB20B9B488003B9AA2 /* DrinkLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5105D7BA20B9B488003B9AA2 /* DrinkLogCell.swift */; };
+		5105D7BD20BA59C0003B9AA2 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5105D7BC20BA59C0003B9AA2 /* SettingsController.swift */; };
 		516024FE20B0155B000650A4 /* DrinkLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516024FD20B0155B000650A4 /* DrinkLogViewController.swift */; };
 		5160250420B14E8B000650A4 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5160250320B14E8B000650A4 /* CalendarData.swift */; };
 		5160250720B94A03000650A4 /* CalendarDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5160250520B94A03000650A4 /* CalendarDateCell.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		5105D7BA20B9B488003B9AA2 /* DrinkLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkLogCell.swift; sourceTree = "<group>"; };
+		5105D7BC20BA59C0003B9AA2 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		516024FD20B0155B000650A4 /* DrinkLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkLogViewController.swift; sourceTree = "<group>"; };
 		5160250320B14E8B000650A4 /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
 		5160250520B94A03000650A4 /* CalendarDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateCell.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				51B4DCA6200092C3005A0BE5 /* IndexViewController.swift */,
 				516024FD20B0155B000650A4 /* DrinkLogViewController.swift */,
 				51B4DCAA200092C3005A0BE5 /* Main.storyboard */,
+				5105D7BC20BA59C0003B9AA2 /* SettingsController.swift */,
 				5105D7BA20B9B488003B9AA2 /* DrinkLogCell.swift */,
 				5160250520B94A03000650A4 /* CalendarDateCell.swift */,
 				5160250620B94A03000650A4 /* CalendarDateCell.xib */,
@@ -313,6 +316,7 @@
 				5160250420B14E8B000650A4 /* CalendarData.swift in Sources */,
 				51B4DCE42000E1D9005A0BE5 /* DrinkCustomViewController.swift in Sources */,
 				516024FE20B0155B000650A4 /* DrinkLogViewController.swift in Sources */,
+				5105D7BD20BA59C0003B9AA2 /* SettingsController.swift in Sources */,
 				5160250720B94A03000650A4 /* CalendarDateCell.swift in Sources */,
 				5181EBB42009EAF60003118A /* Utils.swift in Sources */,
 				5181EBBD200B01130003118A /* SignupViewController.swift in Sources */,
